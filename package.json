@@ -1,0 +1,97 @@
+{
+  "name": "react-midas",
+  "version": "0.0.0",
+  "description": "Highlight CSS in React with Midas.",
+  "main": "dist/index.js",
+  "files": [
+    "dist",
+    "LICENSE-MIT"
+  ],
+  "scripts": {
+    "contributorAdd": "all-contributors add",
+    "contributorGenerate": "all-contributors generate",
+    "docs": "documentation build src -f html -o docs --name react-midas",
+    "pretest": "eslint src && flow check",
+    "prepublish": "npm run readme && del-cli dist && cross-env BABEL_ENV=publish babel src --out-dir dist --ignore /__tests__/",
+    "readme": "documentation readme src --section 'API'",
+    "report": "nyc report --reporter=html",
+    "test": "cross-env BABEL_ENV=test nyc ava src/__tests__/*.js",
+    "test-012": "cross-env BABEL_ENV=test nyc ava src/__tests__/*.js"
+  },
+  "keywords": [
+    "css",
+    "highlight",
+    "syntax",
+    "midas",
+    "react"
+  ],
+  "homepage": "https://github.com/ben-eb/react-midas",
+  "author": {
+    "name": "Ben Briggs",
+    "email": "beneb.info@gmail.com",
+    "url": "http://beneb.info"
+  },
+  "repository": "ben-eb/react-midas",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^0.14.0 || ^15.0.0"
+  },
+  "dependencies": {
+    "hast-to-hyperscript": "^2.0.3",
+    "midas": "^2.0.0",
+    "react": "^0.14.0 || ^15.0.0"
+  },
+  "devDependencies": {
+    "all-contributors-cli": "^3.0.6",
+    "ava": "^0.15.0",
+    "babel-cli": "^6.5.1",
+    "babel-core": "^6.5.1",
+    "babel-plugin-add-module-exports": "^0.2.0",
+    "babel-preset-es2015-loose": "^7.0.0",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-stage-0": "^6.5.0",
+    "babel-register": "^6.9.0",
+    "coveralls": "^2.11.6",
+    "cross-env": "^2.0.0",
+    "del-cli": "^0.2.0",
+    "documentation": "^4.0.0-beta9",
+    "enzyme": "^2.4.1",
+    "eslint": "^3.0.0",
+    "eslint-config-cssnano": "^3.0.0",
+    "eslint-plugin-babel": "^3.3.0",
+    "eslint-plugin-flow-vars": "^0.4.0",
+    "eslint-plugin-flowtype": "^2.3.1",
+    "eslint-plugin-import": "^1.10.2",
+    "eslint-plugin-react": "^5.2.2",
+    "flow-bin": "^0.29.0",
+    "nyc": "^7.0.0",
+    "react-addons-test-utils": "^15.2.1",
+    "react-dom": "^15.2.1"
+  },
+  "nyc": {
+    "exclude": [
+      "**/__tests__"
+    ]
+  },
+  "ava": {
+    "babel": "inherit",
+    "require": "babel-register"
+  },
+  "eslintConfig": {
+    "extends": [
+      "cssnano/flow",
+      "plugin:react/recommended"
+    ],
+    "rules": {
+      "react/display-name": 0
+    },
+    "plugins": [
+      "react"
+    ],
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    }
+  }
+}
