@@ -64,12 +64,13 @@
     "eslint-plugin-import": "^1.10.2",
     "eslint-plugin-react": "^6.0.0",
     "flow-bin": "^0.31.1",
-    "nyc": "^7.0.0",
+    "nyc": "^8.0.0",
     "react-addons-test-utils": "^15.2.1",
     "react-dom": "^15.2.1"
   },
   "nyc": {
     "exclude": [
+      "node_modules",
       "**/__tests__"
     ]
   },
